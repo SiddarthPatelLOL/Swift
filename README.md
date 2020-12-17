@@ -1,1 +1,2 @@
-# A simple chrome extension for [Twitch](https://www.twitch.tv/)
+# Swift
+A simple chrome extension for [Twitch](https://www.twitch.tv/)
