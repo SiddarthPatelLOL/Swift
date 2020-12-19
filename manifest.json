@@ -4,23 +4,23 @@
     "description": "A simple chrome extension for Twitch TV",
     "permissions": ["declarativeContent"],
     "background": {
-        "scripts": ["scripts/background.js"],
+        "scripts": ["common/background.js"],
         "persistent": false
     },
     "page_action": {
-        "default_popup": "popup.html",
+        "default_popup": "common/popup.html",
         "default_icon": {
-            "16": "static/icons/icon16.png",
-            "32": "static/icons/icon32.png",
-            "48": "static/icons/icon48.png",
-            "128": "static/icons/icon16.png"
+            "16": "common/static/icons/icon16.png",
+            "32": "common/static/icons/icon32.png",
+            "48": "common/static/icons/icon48.png",
+            "128": "common/static/icons/icon16.png"
         }
     },
     "icons": {
-        "16": "static/icons/icon16.png",
-        "32": "static/icons/icon32.png",
-        "48": "static/icons/icon48.png",
-        "128": "static/icons/icon16.png"
+        "16": "common/static/icons/icon16.png",
+        "32": "common/static/icons/icon32.png",
+        "48": "common/static/icons/icon48.png",
+        "128": "common/static/icons/icon16.png"
     },
     "manifest_version": 2
 }
