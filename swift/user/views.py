@@ -8,7 +8,9 @@ import os
 
 load_dotenv()
 
+
 @xframe_options_exempt # Allows iframes on the host chrome extension  
+@auth.checker
 def index(request):
 
     return HttpResponse("Initial Test")
