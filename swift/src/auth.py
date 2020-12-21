@@ -3,10 +3,17 @@ from dotenv import main
 import requests, os, time
 
 
-def getAccessToken():
+def storeRequestedAccessToken():
     """
-    Requests app access token via Twitch API and returns a python dictionary
-    containing the API response. 
+    Function does two things:
+
+    *   Requests app access token via Twitch API and returns a python dictionary
+        containing the API response.
+    
+    *   Then stores the response containing the app access token and the expiry
+        date converted to time since epoch in an .env file as environment
+        variable stored relative to the caller directory. 
+
     """
     URL = "https://id.twitch.tv/oauth2/token"
 
@@ -22,13 +29,6 @@ def getAccessToken():
     # Convert value (in seconds) of the key 'expires_in' to unix epoch. 
     response['expires_in'] = float(response['expires_in']) + time.time()
 
-    return response
-
-def storeAccessToken(accessToken, expiresIn):
-    """
-    Stores the app access token and it's expiry date since epoch in an .env
-    file as environment variable stored relative to the caller directory. 
-    """
-    os.system(f"echo 'ACCESS_TOKEN=\"{accessToken}\"' >> .env")
-    os.system(f"echo 'EXPIRES_IN={expiresIn}' >> .env")
-    
+    # Stores the token and expiry date (in seconds since epoch) in env vars 
+    os.system(f"echo 'ACCESS_TOKEN=\"{response['access_token']}\"' >> .env")
+    os.system(f"echo 'EXPIRES_IN={response['expires_in']}' >> .env")
