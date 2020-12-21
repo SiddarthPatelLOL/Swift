@@ -3,17 +3,12 @@ from django.http import HttpResponse
 from django.views.decorators.clickjacking import xframe_options_exempt
 
 from dotenv import load_dotenv
-from src import twitch
+from src import auth
 import os
 
 load_dotenv()
 
-CLIENT_ID = os.getenv("CLIENT_ID")
-CLIENT_SECRET = os.getenv("CLIENT_SECRET")
-GRANT_TYPE = "client_credentials"
-
-
-@xframe_options_exempt # Allows iframes on the host extension  
+@xframe_options_exempt # Allows iframes on the host chrome extension  
 def index(request):
 
     return HttpResponse("Initial Test")
