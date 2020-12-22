@@ -1,0 +1,16 @@
+{% extends "user/base.html" %}
+
+{% block header %}
+{% endblock header %}
+
+{% block content %}
+    <form action="{% url 'user:query' %}" method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input type="search" name="search" placeholder="Enter username">
+        <br />
+        <br />
+        <input id="submit" type="submit" value="Search">
+    </form>
+</div>
+{% endblock %}

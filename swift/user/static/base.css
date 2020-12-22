@@ -1,0 +1,14 @@
+div#header {
+    /* background-color: aqua; */
+    height: 100px;
+}
+
+div#content {
+    /* background-color: red; */
+    max-width: 178px;
+    margin: 10px auto 10px auto;    
+}
+
+input#submit {
+    margin-left: 55px; 
+}
