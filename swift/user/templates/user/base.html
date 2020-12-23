@@ -1,18 +1,19 @@
 {% load static %}
+{% load bootstrap3 %}
+
 
 <!DOCTYPE html>
 <html>
     <head>
-        <link rel="stylesheet" href="{% static 'base.css' %}">
+        <link rel="stylesheet" href="{% static 'base.css' %}" />
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+        {% bootstrap_css %}
+        {% bootstrap_javascript %}
     </head>
     <body>
-        
-        <div id="header">
         {% block header %}{% endblock header %}
-        </div>
         
-        <div id="content">
         {% block content %}{% endblock content %}
-        </div>
     </body>
 </html>

@@ -14,6 +14,10 @@ load_dotenv()
 @xframe_options_exempt # Allows iframes on the host chrome extension  
 @auth.checker
 def index(request):
+    """
+    Renders a search box for the user to query information about a
+    specific user on twitch.
+    """
 
     return render(request, 'user/index.html')
 
@@ -21,13 +25,22 @@ def index(request):
 @csrf_exempt
 @auth.checker
 def query(request):
+    """
+    Accepts twitch username entered by the user making the query and
+    renders template containing the information of the twitch user.
+    """
 
+    username = ""
     if request.method == "POST":
         username = request.POST['search']
     
-    response = resource.profile(username)
-    response = response['data'][0]
+    profileInfo = resource.profile(username)
+    streamInfo = resource.getStream(username)
 
-    context = {'response': response}
-    return render(request, 'user/query.html', context)
+    if not profileInfo:
+        context = {'error': True}
+        return render(request, 'user/index.html', context)
+    else:
+        context = {'profile': profileInfo, 'stream': streamInfo}
+        return render(request, 'user/query.html', context)
     

@@ -1,14 +1,103 @@
+head + body {
+    background-color:thistle;
+}
+
 div#header {
-    /* background-color: aqua; */
     height: 100px;
 }
 
-div#content {
-    /* background-color: red; */
-    max-width: 178px;
-    margin: 10px auto 10px auto;    
+div h1 {
+    color: aquamarine;
+    font-family: 'Press Start 2P', cursive;
+    text-align: center;
+    letter-spacing: 2px;
+    margin: 0px;
+    padding-top: 27px;
 }
 
-input#submit {
-    margin-left: 55px; 
+div.content {
+    max-width: 100%;
+    margin: 65px 55px 10px 75px;    
+}
+
+div.content-query {
+    max-width: 500px;
+    margin-top: 30px;
+    margin-left: 120px;
+}
+
+input#search {
+    font-size: 150%;
+    border-radius: 5px;
+    display: block;
+    padding-left: 30px;
+    background-image: url("forsen1.jpg");
+    background-repeat: no-repeat;
+    background-position: 4px 4px;   
+}
+
+input#search:hover, input#search:focus {
+    background-color: antiquewhite;
+    border: 3px solid red;
+}
+
+#submit {
+    font-size: 150%;
+    margin-left: 100px; 
+}
+
+#displayName {
+    text-align: center;
+}
+
+.legend-fieldset {
+    border: 1px solid;
+    border-radius: 10px;
+    margin: 10px;
+    text-align: center;
+}
+
+#description {
+    margin: auto 20px;
+    text-align: center;
+    padding: 5px;
+}
+
+.table-query {
+    border-collapse: collapse;
+    border-radius: 20px;
+}
+
+.row-query{
+    border-top: solid 2px;
+    border-bottom: solid 2px;
+    border-collapse: collapse;
+    padding: 5px;
+    text-align: center;
+}
+
+tr.even {
+    background-color: lightgray;
+}
+
+tr.odd {
+    background-color: lightslategray;
+}
+
+tr:hover {
+    background-color: gray;
+}
+
+span {
+    text-transform: capitalize;
+}
+
+img {
+    margin-left: 180px;
+    margin-top: 10px;
+}
+
+div#alert {
+    max-width: 100%;
+    text-align: center;
 }

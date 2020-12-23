@@ -1,16 +1,50 @@
 {% extends "user/base.html" %}
+{% load static %}
+
 
 {% block header %}
-<div id="header">
+    <img id="displayImage" src="{{ profile.profile_image_url }}" width="75" height="75">
+        
+        <h3 id="displayName">{{ profile.display_name }}</h3>
 
-</div>
+        <fieldset class="legend-fieldset">
+            <legend class="legend-fieldset">About {{ profile.display_name }}</legend>
+            <p id="description">{{ profile.description }}</p>
+        </fieldset>
 {% endblock header %}
 
 {% block content %}
-<table>
-    <tr>
-        <th>Test Field - Display Name</th>
-        <td>{{ response.display_name }}</td>
+<div class="content content-query">
+<table class="table-query">
+    <tr class="row-query odd">
+        <th class="row-query">Type</th>
+        <td class="row-query">{{ profile.broadcaster_type|title }}</td>
+    </tr>
+    <tr class="even">
+        <th class="row-query">User ID</th>
+        <td class="row-query">{{ profile.id }}</td>
+    </tr>
+    <tr class="odd">
+        <th class="row-query">View Count</th>
+        <td class="row-query">{{ profile.view_count }}</td>
+    </tr>
+    <tr class="even">
+        <th class="row-query">Account Created</th>
+        <td class="row-query">{{ profile.created_at }}</td>
+    </tr>
+    <tr class="odd">
+    {% if stream.type %}
+        <th class="row-query">Status</th>
+        <td class="row-query">{{ stream.type|title }}</a></td>
+    <tr class="even">
+        <th class="row-query">Viewers</th>
+        <td class="row-query">{{ stream.viewer_count }}</td>
+    </tr>
+    {% else %}
+        <th class="row-query">Status</th>
+        <td class="row-query">Offline</td>
+    {% endif %}
     </tr>
 </table>
 {% endblock %}
+</div>

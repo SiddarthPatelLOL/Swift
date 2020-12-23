@@ -1,16 +1,34 @@
 {% extends "user/base.html" %}
+{% load bootstrap3 %}
+
 
 {% block header %}
+<div id="header">
+<h1>Quick Peek</h1>
+</div>
 {% endblock header %}
 
 {% block content %}
+<div class="content content-search">
+    
     <form action="{% url 'user:query' %}" method="POST">
+        
         {% csrf_token %}
-        {{ form.as_p }}
-        <input type="search" name="search" placeholder="Enter username">
-        <br />
-        <br />
-        <input id="submit" type="submit" value="Search">
+        <input id="search" type="search" name="search" placeholder="Enter username" autocomplete="off">
+        <br /><br />
+        
+        {% buttons %}
+        <button id="submit" class="btn btn-primary" type="submit">
+            Search
+        </button>
+        {% endbuttons %}
     </form>
+
+    <div id="alert">
+    {% if error %}
+    <h2>This user does not exist or is banned.</h2>
+    {% endif %}
+    </div>
+
 </div>
 {% endblock %}
