@@ -1,5 +1,4 @@
 {% extends "user/base.html" %}
-{% load bootstrap3 %}
 
 
 {% block header %}
@@ -17,11 +16,8 @@
         <input id="search" type="search" name="search" placeholder="Enter username" autocomplete="off">
         <br /><br />
         
-        {% buttons %}
-        <button id="submit" class="btn btn-primary" type="submit">
-            Search
-        </button>
-        {% endbuttons %}
+        <button type="button" class="btn btn-primary">Primary</button>
+
     </form>
 
     <div id="alert">
