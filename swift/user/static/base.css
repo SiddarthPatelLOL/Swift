@@ -9,31 +9,26 @@ div#header {
 div h1 {
     color: aquamarine;
     font-family: 'Press Start 2P', cursive;
-    text-align: center;
+    /* text-align: center; */
     letter-spacing: 2px;
     margin: 0px;
     padding-top: 27px;
 }
-
-div.content {
+/* 
+/* div.content {
     max-width: 100%;
     margin: 65px 55px 10px 75px;    
-}
+} */ */
 
-div.content-query {
-    max-width: 500px;
-    margin-top: 30px;
-    margin-left: 120px;
-}
 
 input#search {
     font-size: 150%;
     border-radius: 5px;
     display: block;
     padding-left: 30px;
-    background-image: url("forsen1.jpg");
+    background-image: url("./forsen1.jpg");
     background-repeat: no-repeat;
-    background-position: 4px 4px;   
+    background-position: 4px 9px;   
 }
 
 input#search:hover, input#search:focus {
@@ -41,14 +36,14 @@ input#search:hover, input#search:focus {
     border: 3px solid red;
 }
 
-#submit {
-    font-size: 150%;
-    margin-left: 100px; 
+div.card {
+    background-color: antiquewhite;
+    width: 15rem;
 }
 
-#displayName {
+/* #displayName {
     text-align: center;
-}
+} */
 
 .legend-fieldset {
     border: 1px solid;
@@ -57,13 +52,14 @@ input#search:hover, input#search:focus {
     text-align: center;
 }
 
-#description {
+/* #description {
     margin: auto 20px;
     text-align: center;
     padding: 5px;
-}
+} */
 
 .table-query {
+    width: 100%;
     border-collapse: collapse;
     border-radius: 20px;
 }

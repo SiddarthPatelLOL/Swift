@@ -1,30 +1,29 @@
 {% extends "user/base.html" %}
+{% load static %}
 
 
 {% block header %}
-<div id="header">
-<h1>Quick Peek</h1>
+<div class="d-flex justify-content-center mb-5">
+    <h1>Quick Peek</h1>
 </div>
 {% endblock header %}
 
 {% block content %}
-<div class="content content-search">
-    
-    <form action="{% url 'user:query' %}" method="POST">
-        
-        {% csrf_token %}
-        <input id="search" type="search" name="search" placeholder="Enter username" autocomplete="off">
-        <br /><br />
-        
-        <button type="button" class="btn btn-primary">Primary</button>
+<div class="d-flex flex-column justify-content-center">
+        <form class="d-block mx-auto mb-5" action="{% url 'user:query' %}" method="POST">
 
-    </form>
+            {% csrf_token %}
+            <input class="form-control mb-4" id="search" type="search" name="search" placeholder="Enter username" autocomplete="off">
 
-    <div id="alert">
-    {% if error %}
-    <h2>This user does not exist or is banned.</h2>
-    {% endif %}
-    </div>
 
+            <button type="submit" class="btn btn-primary d-block mx-auto">Search</button>
+
+        </form>
+
+        <div id="alert">
+            {% if error %}
+            <h2>This user does not exist or might be banned.</h2>
+            {% endif %}
+        </div>
 </div>
 {% endblock %}
