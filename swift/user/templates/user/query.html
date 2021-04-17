@@ -6,44 +6,57 @@
 {% endblock header %}
 
 {% block content %}
-<div class="card d-flex justify-content-center align-items-center my-5 h-50">
-    <img src="{{ profile.profile_image_url }}" class="img-fluid mx-auto" alt="profile picture" height="100" width="100">
-    <div class="card-body">
-        <h5 class="card-subtitle mb-2 text-muted text-center">{{ profile.display_name }}</h5>
-        <p class="card-text text-center">{{ profile.description }}</p>
-    </div>
-    <div class="card-body card d-flex align-items-cente">
-            <table class="table-query mx-auto">
-                <tr class="row-query odd">
-                    <th class="row-query">Type</th>
-                    <td class="row-query">{{ profile.broadcaster_type|title }}</td>
-                </tr>
-                <tr class="even">
-                    <th class="row-query">User ID</th>
-                    <td class="row-query">{{ profile.id }}</td>
-                </tr>
-                <tr class="odd">
-                    <th class="row-query">View Count</th>
-                    <td class="row-query">{{ profile.view_count }}</td>
-                </tr>
-                <tr class="even">
-                    <th class="row-query">Account Created</th>
-                    <td class="row-query">{{ profile.created_at }}</td>
-                </tr>
-                <tr class="odd">
-                    {% if stream.type %}
-                    <th class="row-query">Status</th>
-                    <td class="row-query">{{ stream.type|title }}</a></td>
-                <tr class="even">
-                    <th class="row-query">Viewers</th>
-                    <td class="row-query">{{ stream.viewer_count }}</td>
-                </tr>
-                {% else %}
-                <th class="row-query">Status</th>
-                <td class="row-query">Offline</td>
-                {% endif %}
-                </tr>
-            </table>
+<div class="container">
+    <div class="row">
+        <div class="col-12">
+            <div class="card my-3 mx-auto">
+                <img src="{{ profile.profile_image_url }}" class="img-fluid mx-auto" alt="profile picture">
+                <div class="card-body">
+                    <h5 class="card-subtitle mb-2 text-muted text-center">{{ profile.display_name }}</h5>
+                    <p class="card-text text-center">{{ profile.description }}</p>
+                </div>
+                <div class="card-body card">
+                    <table class="table-query">
+                        <tr class="row-query odd">
+                            <th class="row-query">Type</th>
+                            <td class="row-query">{{ profile.broadcaster_type|title }}</td>
+                        </tr>
+                        <tr class="even">
+                            <th class="row-query">User ID</th>
+                            <td class="row-query">{{ profile.id }}</td>
+                        </tr>
+                        <tr class="odd">
+                            <th class="row-query">View Count</th>
+                            <td class="row-query">{{ profile.view_count }}</td>
+                        </tr>
+                        <tr class="even">
+                            <th class="row-query">Account Created</th>
+                            <td class="row-query">{{ profile.created_at }}</td>
+                        </tr>
+                        <tr class="odd">
+                            {% if stream.type %}
+                            <th class="row-query">Status</th>
+                            <td class="row-query">{{ stream.type|title }}</a></td>
+                        <tr class="even">
+                            <th class="row-query">Viewers</th>
+                            <td class="row-query">{{ stream.viewer_count }}</td>
+                        </tr>
+                        {% else %}
+                        <th class="row-query">Status</th>
+                        <td class="row-query">Offline</td>
+                        {% endif %}
+                        </tr>
+                    </table>
+                </div>
+            </div>
+            <div class="card-footer m-0 p-0 mb-3">
+                <form class="d-block mx-auto mb-5" action="{% url 'user:index' %}" method="GET">
+                    <div class="d-grid gap-2">
+                        <button class="btn btn-primary" type="submit">Back</button>
+                    </div>
+                </form>
+            </div>
+        </div>
     </div>
 </div>
 {% endblock %}
